@@ -53,13 +53,10 @@ a:focus{
   transition: none;
 /*Add the selector and rule to move the skip link to the exact top.*/
 }
-
 :focus{
   border: 2px solid black;
 /*Add the selector and code to put a 2px black border around all elements in focus.*/
 }
-
-
 footer{
   background-color: black;
   color: white;
@@ -71,15 +68,17 @@ footer{
 
 .container{
   /*Your code here  */
+  grid: display;
   grid-row-gap: 15px;
+  grid-template-columns: 100px 500px 100px;
   /*Provided*/
   grid-template-rows: 30px auto auto auto auto auto 100px; 
   width: 100vw; 
 }
 
 .nav{
-  display: inline-block;
-  vertical-align: middle;
+  grid-row: 1/2;
+  grid-column: 1/-1;
   /*Provided*/
   background-color: #ddd;
   padding: 20px 0; 
@@ -93,8 +92,9 @@ header{
   background-repeat: no-repeat; /* Parallax effect */
   background-size: cover;       /* Parallax effect */
   color: white;
-  height: 400px;                /* Parallax effect */
-  /*Your code here - cover the entire row*/
+  height: 400px;
+  grid-column: 1/-1;
+  grid-row:2/3;   
 }
 
 header p{
@@ -106,7 +106,7 @@ header p{
 
 .about-image{
   grid-column: 1/-1;
-  grid-row: 3/5;
+  grid-row: 3/4;
   max-height: 700px;
   overflow: hidden;
 
@@ -114,7 +114,7 @@ header p{
 
 .about{
   grid-column: 2/3;
-  grid-row: 3/4
+  grid-row: 3/4;
   /*Your code here */
 }
 
@@ -156,51 +156,45 @@ header p{
 }
 
 .contact{
-  grid-column: 2/4;
+  grid-column: 2/3;
   grid-row: 6/7
    /*Your code here */
 }
 
 .text-block{
-
    /*Your code here */
+  justify-self:center;
   margin: auto;
   background-color: rgba(255, 255, 255, .8);
   border: 10px solid black;
   padding: 30px;
 }
-
-@media screen/* i added screen Your code here - Add the first media query.*/{
-
+@media screen and (min-width: 800px){
   .container{
-    /*Your code here */
-    grid-template-columns: 100px 500px 100px;
+    grid-template-columns: 50px auto 500px auto 50px;
     grid-template-rows: 70px 400px 400px 400px 400px 400px 100px;
   }
-
   .nav{
     background-color: #ddd;
     padding-top: 35px;
     padding-bottom: 35px;
     display: inline-block; /*unrure if this is rigt aligned */
-    vertical-align: middle
+    vertical-align: middle;
+    text-align: right;
      /*Your code here */
   }
-
   .about-image{
     grid-column: 2/4;
-    grid-row: 4/5;
+    grid-row: 3/4;
     max-height: 700px;
     overflow: hidden;
      /*Your code here */
     }
-
   .about{
-    grid-column: 3/5;
-    grid-row: 3/4;
+    grid-column: 3/span 2;
+    grid-row: 3/ span 1;
     /*Your code here */
   }
-
   .method-image{
     grid-column: 3/5;
     grid-row: 4/5;
@@ -208,44 +202,34 @@ header p{
     overflow: hidden;
     /*Your code here */
   }
-
   .method{
     grid-column: 2/4;
     grid-row: 4/5;
     /*Your code here */
   }
-
   .clients-image{
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 5/6;
     max-height: 700px;
     overflow: hidden;
     /*Your code here */
-
   }
-
   .clients{
-    grid-column: 2/3;
+    grid-column: 3/5;
     grid-row: 5/6;
     /*Your code here */
   }
-
   .contact-image{
-    grid-column: 2/3;
+    grid-column: 3/5;
     grid-row: 6/7;
     max-height: 700px;
     overflow: hidden;
-    /*Your code here */
   }
-
   .contact{
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 6/7;
-    /*Your code here */
    }
-
 }  /*End the media query*/
-
 @media screen and (prefers-reduced-motion: reduce){
   html{
       scroll-behavior: auto; /* Removes scroll animation */
